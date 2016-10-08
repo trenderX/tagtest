@@ -17,7 +17,7 @@ Once you have these, install the following as globals:
 ## Developer mode HRM + eval build  
 * `npm run dev`
 
-## Build for deployment && Deploy
+## Build for deployment && Deploy After setting up app on Heroku
 * `npm run build`
 * `git push heroku branch-name:master`
 
@@ -50,3 +50,9 @@ For example, running `gulp component --name signup --parent ./components/auth` w
 Running `gulp component --name footer --parent ../common/components` creates a `footer` component at `_client/common/components/footer`.  
 
 Because the argument to `--name` applies to the folder name **and** the actual component name, make sure to camelcase the component names.
+
+
+## Resources (inspired on)
+* AngularClass NG6 - https://github.com/Braincompiler/NG6-starter
+* toddmotto's Style Guide - https://github.com/toddmotto/angular-styleguide
+
