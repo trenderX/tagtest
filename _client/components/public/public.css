@@ -1,0 +1,10 @@
+/* use #public*/
+#public {
+  min-height: 100%;
+  background-color: #fff;
+}
+
+#public .view-port {
+  height: 100vh !important;
+  background-color: white;
+}

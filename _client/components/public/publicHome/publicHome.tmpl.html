@@ -1,0 +1,18 @@
+<div id='publicHome' layout='row' layout-align='center center'>
+  <div layout='column' layout-align='center none'>
+
+    <div id='public-logo' layout='column' layout-align='center center'>
+      <a href='#' ui-sref='public.home' class='logo'><img src="/api/assets/img/node-logo.png"></a>
+      <h1>{{$ctrl.message}}</h1>
+    </div>
+
+    <div ng-show='!$ctrl.login && !$ctrl.signup' layout='column' layout-align='center stretch' class='home-button-container'>
+      <md-button ng-click='$ctrl.login = true'>LOGIN</md-button>
+      <md-button ng-click='$ctrl.signup = true'>SIGN UP</md-button>
+    </div>
+
+    <login-box ng-if='$ctrl.login'></login-box>
+    <signup-box ng-if='$ctrl.signup'></signup-box>
+
+  </div> 
+</div>

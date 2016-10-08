@@ -1,0 +1,8 @@
+/*use #publicHome*/
+#publicHome {
+  min-height: 100%;
+}
+
+#publicHome .home-button-container {
+  min-width:500px;
+}

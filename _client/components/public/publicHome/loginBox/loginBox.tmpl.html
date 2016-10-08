@@ -1,0 +1,37 @@
+<div id='loginBox'>
+  <div layout='column' layout-align='center stretch'>    
+    <div layout='row' layout-align='start end'>
+      <md-button class="md-icon-button" aria-label="back" ng-click='$ctrl.parent.login = false; $ctrl.parent.clearUser()'>
+        <md-icon md-svg-icon="/api/assets/img/back-arrow-icon.svg"></md-icon>
+      </md-button>
+    </div>
+    
+    <md-content layout-padding class='white-container form-container'>
+      <form name="loginForm">
+
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input required md-no-asterisk type="email" name="email" ng-model='$ctrl.parent.user.email'
+                 minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+          <div ng-messages="loginForm.email.$error" role="alert">
+            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+              Your email must be between 10 and 100 characters long and look like an e-mail address.
+            </div>
+          </div>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input type='password' md-no-asterisk required name="password" ng-model='$ctrl.parent.user.password'>
+          <div ng-messages="loginForm.password.$error">
+            <div ng-message="required">Password is required.</div>
+          </div>
+        </md-input-container>
+        <div layout='column' layout-align='center stretch'>
+          <md-button type="submit" ng-disabled='loginForm.$invalid' ng-click='$ctrl.parent.loginUser($ctrl.parent.user)'>LOGIN</md-button>
+        </div>
+      </form>
+    </md-content>
+  </div>  
+</div>

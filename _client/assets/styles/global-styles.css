@@ -1,0 +1,29 @@
+/*MAIN CSS STYLES - BE CAREFUL THERE, SLICK*/
+
+html {
+  height: 100%;
+  background-color: white;
+}
+
+body {
+  font-size: 16px;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+a {
+  color: $blue;
+  font-size: 1em;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: #1176B8;
+  cursor: pointer;
+  text-decoration: underline;
+}

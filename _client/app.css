@@ -1,0 +1,7 @@
+#app {
+  min-height: 100%;
+}
+
+#app .view-port {
+  height: 100vh!important;
+}
