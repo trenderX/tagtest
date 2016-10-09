@@ -4,8 +4,8 @@ import controller from './autocomplete.controller';
 
 const autocompleteComponent = {
   bindings: {
-    tags:'<',
-    result:'&'
+    base:'<', //array of passed objects
+    results:'&' // array of results
   },
   require: {},
   template,

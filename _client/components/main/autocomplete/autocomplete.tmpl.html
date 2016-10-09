@@ -1,6 +1,11 @@
 <div id='autocomplete'>
   <div>
     <h1>{{ $ctrl.name }}</h1>
-    Tags : <pre>{{$ctrl.tags|json}}</pre>
+    <div>
+      <input type="text" name="autocomplete" ng-model='$ctrl.inputVal' ng-change="$ctrl.inputValChange($ctrl.inputVal)">
+    </div>
+    <pre> input value: {{$ctrl.inputVal}} </pre>
+    <pre> results: {{$ctrl.results|json}}</pre>
+    <pre> passed array : {{$ctrl.base|json}}</pre>
   </div>
 </div>

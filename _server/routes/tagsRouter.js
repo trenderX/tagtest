@@ -26,7 +26,7 @@ router.post('/seedTags', function (req, res) {
   if (quantity) {
     var tagArr = []
     
-    for (i=0; i<=quantity; i++) {  
+    for (i=0; i<quantity; i++) {  
       var letters = Math.floor((Math.random() * 10) + 5)
       var tag = { value:createRandomWord(letters) }
       tagArr.push(tag)

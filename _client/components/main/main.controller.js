@@ -33,8 +33,8 @@ function MainController ($state, AuthService, SocketService, Tag) {
     Tag.seedTags(obj)
     .then(function(res) {
       if (!res.error) {
-        console.log(res.data)
       }
+      console.log(res.data)
     })
 
   }
