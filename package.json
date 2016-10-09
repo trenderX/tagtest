@@ -7,7 +7,7 @@
     "start": "node index",
     "clean": "rimraf ./dist/app-bundle",
     "dev": "npm run clean && npm start",
-    "copy": "cp -R _client/assets/img dist/app-bundle/assets/img",
+    "copy": "mkdir ./dist/app-bundle/assets && cp -R ./_client/assets/img ./dist/app-bundle/assets",
     "build": "npm run clean && cross-env NODE_ENV=production webpack -p --config webpack.production.config.js && npm run copy",
     "prod-start": "cross-env NODE_ENV=production npm start",
     "prod": "npm run build && npm run prod-start",
