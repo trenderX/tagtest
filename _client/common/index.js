@@ -9,6 +9,7 @@ import AuthService from './services/auth.service';
 
 // Models
 import UserModel from './models/user.model';
+import TagModel from './models/tag.model';
 
 const common = angular.module('app.common', [
   CommomComponents,
@@ -18,6 +19,7 @@ const common = angular.module('app.common', [
 .service('AuthService', AuthService)
 // Common Models
 .factory('User', UserModel)
+.factory('Tag', TagModel)
 .name;
 
 export default common;

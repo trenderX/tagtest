@@ -1,7 +1,12 @@
 <div id='main'>
   <nav></nav>
-  <div layout='column' layout-align='center center'>
-    <h1>{{ $ctrl.name }}</h1>
+  <div layout='column' layout-align='center center' layout-padding>
+    <h1>{{ $ctrl.name }} Tags</h1>
+    <p>Badly implemented but works</p>
+    <input type="number" name="tags" ng-model='$ctrl.tagNumber' placeholder='number of tags'>  
+    <md-button class='md-raised' ng-click='$ctrl.seedTags($ctrl.tagNumber)'>seedTags</md-button>
+    <br>
+    <md-divider></md-divider>
+    <autocomplete tags='$ctrl.tags'></autocomplete>
   </div>
-  <div ui-view class='view-port'></div>
 </div>

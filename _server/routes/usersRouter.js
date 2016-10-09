@@ -15,12 +15,12 @@ var Users = require('../db/models/users');
 //*****ADD Auth.requireAuth as MIDDLEWARE FOR PRODUCTION******//
 
 router.get('/', function (req, res) {
-  Users.find({}, { password:0 }, function (err, doc) {
+  Users.find({}, { password:0 }, function (err, docs) {
     if (err) { 
       console.log(`DB error: ${err}`);
       res.status(401).json({ 'error':true, data:err });
     } else {
-      res.status(200).json({ error:false, data:users });
+      res.status(200).json({ error:false, data:docs });
     }
   })
 });

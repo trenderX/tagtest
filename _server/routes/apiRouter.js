@@ -4,6 +4,7 @@ var express = require('express');
 // routers declarations
 var router = express.Router();
 var usersRouter = require('./usersRouter');
+var tagsRouter = require('./tagsRouter');
 
 // Middleware that checks if logged in and sets cookie to true
 // Used so that Angular can check for this cookies existence to see if logged in or not
@@ -20,6 +21,7 @@ var usersRouter = require('./usersRouter');
 
 // Set up our different api endpoints
 router.use('/users', usersRouter);
+router.use('/tags', tagsRouter);
 
 var isProduction = process.env.NODE_ENV === 'production';
 // serve our client assets
