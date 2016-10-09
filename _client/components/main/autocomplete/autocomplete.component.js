@@ -5,6 +5,7 @@ import controller from './autocomplete.controller';
 const autocompleteComponent = {
   bindings: {
     base:'<', //array of passed objects
+    key:'@',
     results:'&' // array of results
   },
   require: {},

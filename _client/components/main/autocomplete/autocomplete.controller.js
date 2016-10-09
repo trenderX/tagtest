@@ -16,8 +16,22 @@ function AutocompleteController () {
     //triggers when an element is added to the array
   } 
 
-  function inputValChange(value) {
-    console.log(value)
+  function inputValChange(inputVal) {
+    ctrl.results = getResults(inputVal)
   } 
+
+  function getResults (inputVal)  {
+    
+    let containsString = function(stringProp, word) {
+      return stringProp.indexOf(word) >= 0 
+    }
+    
+    let results = _.filter(ctrl.base, function(baseObj) {
+      let testStr = baseObj[`${ctrl.key}`].toLowerCase()
+      return containsString(testStr, inputVal)
+    })
+    
+    return results 
+  }
 
 };
