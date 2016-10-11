@@ -1,7 +1,7 @@
-AutocompleteController.$inject = []
+AutocompleteController.$inject = ['Tag']
 export default AutocompleteController;
 
-function AutocompleteController () {
+function AutocompleteController (Tag) {
   let ctrl = this
   // vm exposed
   ctrl.name = 'Autocomplete'
@@ -17,18 +17,40 @@ function AutocompleteController () {
   } 
 
   function inputValChange(inputVal) {
-    ctrl.results = getResults(inputVal)
+    if (inputVal.length === 0) {
+      ctrl.results = []
+      ctrl.parent.tags = []
+    } else if (inputVal.length === 1) {
+      getTags(inputVal)
+      .then(function() {
+        ctrl.results = getResults(ctrl.parent.tags, inputVal)
+      })
+    } else {
+      ctrl.results = getResults(ctrl.parent.tags, inputVal)
+    }  
   } 
 
-  function getResults (inputVal)  {
+// get tags
+  function getTags(value) {
+    let query = `value=${value}`
+    return Tag.getAll(query)
+    .then(function(res) {
+      if (!res.error) {
+        ctrl.parent.tags = res.data
+      }
+    })
+  }
+
+// calculate results
+  function getResults (items, inputVal)  {
     
-    let containsString = function(stringProp, word) {
-      return stringProp.indexOf(word) >= 0 
+    let stringMatch = function(stringProp, word) {
+      return stringProp.substring(0, word.length) === word
     }
     
-    let results = _.filter(ctrl.base, function(baseObj) {
+    let results = _.filter(items, function(baseObj) {      
       let testStr = baseObj[`${ctrl.key}`].toLowerCase()
-      return containsString(testStr, inputVal)
+      return stringMatch(testStr, inputVal)
     })
     
     return results 

@@ -10,8 +10,8 @@ function TagModel($http) {
       seedTags,
   };
 
-  function getAll() {
-    return $http.get('/api/tags/')  
+  function getAll(query) {
+    return $http.get(`/api/tags?${query}`)  
     .then(function(res) {
       return res.data
     })

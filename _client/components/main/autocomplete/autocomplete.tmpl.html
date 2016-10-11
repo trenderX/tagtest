@@ -4,8 +4,9 @@
     <div>
       <input type="text" name="autocomplete" ng-model='$ctrl.inputVal' ng-change="$ctrl.inputValChange($ctrl.inputVal)">
     </div>
+    <pre> $ctrl: {{$ctrl}} </pre>
     <pre> input value: {{$ctrl.inputVal}} </pre>
     <pre> results: {{$ctrl.results|json}}</pre>
-    <pre> passed array : {{$ctrl.base|json}}</pre>
+    <pre> passed array : {{$ctrl.parent.tags|json}}</pre>
   </div>
 </div>

@@ -9,7 +9,9 @@ var db = require('../db/db');
 var Tag = require('../db/models/tags');
 
 router.get('/', function (req, res) {
-  Tag.find({}, function (err, docs) {
+  var query = url.parse(req.url, true).query;
+    
+  Tag.find({value:{$regex:`^${query.value}`}}, function (err, docs) {
     if (err) { 
       console.log('DB error:', err);
       res.status(401).json({ 'error': true, data: err });
@@ -57,7 +59,7 @@ router.post('/seedTags', function (req, res) {
     for (i=0;i<length/2;i++) {
       var randConsonant = consonants[rand(consonants.length)],
           randVowel = vowels[rand(vowels.length)];
-      word += (i===0) ? randConsonant.toUpperCase() : randConsonant;
+      word += (i===0) ? randConsonant.toLowerCase() : randConsonant;
       word += i*2<length-1 ? randVowel : '';
     }
     return word;

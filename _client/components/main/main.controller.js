@@ -11,17 +11,7 @@ function MainController ($state, AuthService, SocketService, Tag) {
   ctrl.$onInit = function() {
     console.log(`Main Controller Loaded...`)
     if (!AuthService.isLoggedIn()) { $state.go('public.home') }
-    getTags()
   }  
-
-  function getTags() {
-    Tag.getAll()
-    .then(function(res) {
-      if (!res.error) {
-        ctrl.tags = res.data
-      }
-    })
-  }
 
   function seedTags(number) {
     if (!number) {
